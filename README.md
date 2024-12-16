@@ -3,11 +3,9 @@
 ### Development environment 
 For this environment webpack development server.
 To start the application:
-
   - `npm install`
   - `npm start`
   #### for backend
-  - `npm init -y && npm install express socket.io body-parser cors`
   - `node backend.js`
 
 ## Platform requirements
