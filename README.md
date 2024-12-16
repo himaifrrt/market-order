@@ -6,6 +6,9 @@ To start the application:
 
   - `npm install`
   - `npm start`
+  #### for backend
+  - `npm init -y && npm install express socket.io body-parser cors`
+  - `node backend.js`
 
 ## Platform requirements
 - Node.js 18.18.0 or higher

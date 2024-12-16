@@ -1,5 +1,5 @@
 // 1. Init and install:
-// > npm init -y && npm install express socket.io body-parser, cors
+// > npm init -y && npm install express socket.io body-parser cors
 
 // 2. Run server:
 // > node backend.js
@@ -13,7 +13,14 @@ const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIO(server);
+const io = socketIO(server, {
+  cors: {
+    origin: "http://localhost:3000", // Разрешённый источник
+    methods: ["GET", "POST"],       // Разрешённые методы
+    allowedHeaders: ["my-custom-header"], // Допустимые заголовки
+    credentials: true               // Разрешение для отправки cookie
+  }
+});
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
