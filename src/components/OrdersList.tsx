@@ -38,16 +38,16 @@ const OrdersList = observer(() => {
         <table className="table table-bordered table-hover rounded table-striped">
             <thead className="thead-dark">
             <tr>
-                {tableHeaders.map(header => <th className='text-center'>{header}</th>)}
+                {tableHeaders.map((header, idx) => <th key={idx} className='text-center'>{header}</th>)}
             </tr>
             </thead>
             <tbody>
             {orderStore.orders.map((row) => (
                 <tr key={row.id}>
-                <td className='text-end'>{row.amountTokens.toFixed(4)}</td>
-                <td className='text-end'>{row.amountDollars.toFixed(2)}</td>
-                <td className={'text-center ' + getStatusClass(row.status)}>{row.status}</td>
-                <td className='text-center'>{moment(row.createdAt).format('DD-MM-YYYY')}</td>
+                  <td className='text-end'>{row.amountTokens.toFixed(4)}</td>
+                  <td className='text-end'>{row.amountDollars.toFixed(2)}</td>
+                  <td className={'text-center ' + getStatusClass(row.status)}>{row.status}</td>
+                  <td className='text-center'>{moment(row.createdAt).format('DD-MM-YYYY')}</td>
                 </tr>
             ))}
             </tbody>
