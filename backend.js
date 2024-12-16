@@ -7,7 +7,12 @@ const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIO(server);
+const io = socketIO(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  }
+});
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
